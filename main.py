@@ -2,7 +2,7 @@
 # Project: wifi_test
 # Description: iperf (client) test sequence for wireless testing
 __author__ = "Adrian Wong"
-import os, subprocess, argparse, logging, re, time
+import os, subprocess, argparse, logging
 
 
 class myConfig(object):
@@ -50,7 +50,6 @@ def reformatMsg(input):
 
 
 def signalStrength(wifiConfig):
-    pattern = re.compile("^\s+|\s*,\s*|\s+$")
     sigCmd, err = subprocess.Popen(['iwconfig', wifiConfig.interface], stdout=subprocess.PIPE).communicate()
     test = reformatMsg(sigCmd)
     print test[2], ", ", test[6]
