@@ -14,8 +14,13 @@ usage: main.py [-h] [-a [ADDRESS]] [-i [INTERFACE]] [-w [WINDOW]] [-n [BUFFER]] 
 optional arguments:
 
 -h, --help show this help message and exit
+
 -a [ADDRESS] IP address or name of server
+
 -i [INTERFACE] wlan interface (default: wlan0)
+
 -w [WINDOW] TCP window size
+
 -n [BUFFER] Transfer file size
+
 -c [CYCLE] number of cycles
