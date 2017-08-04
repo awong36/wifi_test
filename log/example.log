@@ -1,0 +1,71 @@
+2017-08-04 10:06:32,009 INFO ================== Test 1 Begins ==================
+2017-08-04 10:06:32,011 INFO Frequency:5.18GHz
+2017-08-04 10:06:32,022 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=64/70 Signal level=-46 dBm
+2017-08-04 10:06:36,539 INFO TCP window size: 320 KByte
+2017-08-04 10:06:36,540 INFO local 192.168.1.200 port 44747 connected with 192.168.1.1 port 5001
+2017-08-04 10:06:36,541 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:06:36,542 INFO 0.0- 4.4 sec 50.0 MBytes 94.9 Mbits/sec
+2017-08-04 10:06:36,543 INFO ================== Test 2 Begins ==================
+2017-08-04 10:06:36,544 INFO Frequency:5.18GHz
+2017-08-04 10:06:36,555 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=63/70 Signal level=-47 dBm
+2017-08-04 10:06:40,997 INFO TCP window size: 320 KByte
+2017-08-04 10:06:40,998 INFO local 192.168.1.200 port 44748 connected with 192.168.1.1 port 5001
+2017-08-04 10:06:40,999 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:06:41,000 INFO 0.0- 4.4 sec 50.0 MBytes 95.4 Mbits/sec
+2017-08-04 10:06:41,001 INFO ================== Test 3 Begins ==================
+2017-08-04 10:06:41,002 INFO Frequency:5.18GHz
+2017-08-04 10:06:41,013 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=62/70 Signal level=-48 dBm
+2017-08-04 10:06:45,435 INFO TCP window size: 320 KByte
+2017-08-04 10:06:45,436 INFO local 192.168.1.200 port 44749 connected with 192.168.1.1 port 5001
+2017-08-04 10:06:45,437 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:06:45,438 INFO 0.0- 4.4 sec 50.0 MBytes 95.9 Mbits/sec
+2017-08-04 10:06:45,439 INFO ================== Test 4 Begins ==================
+2017-08-04 10:06:45,440 INFO Frequency:5.18GHz
+2017-08-04 10:06:45,451 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=63/70 Signal level=-47 dBm
+2017-08-04 10:06:49,885 INFO TCP window size: 320 KByte
+2017-08-04 10:06:49,886 INFO local 192.168.1.200 port 44750 connected with 192.168.1.1 port 5001
+2017-08-04 10:06:49,887 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:06:49,888 INFO 0.0- 4.4 sec 50.0 MBytes 95.7 Mbits/sec
+2017-08-04 10:06:49,889 INFO ================== Test 5 Begins ==================
+2017-08-04 10:06:49,890 INFO Frequency:5.18GHz
+2017-08-04 10:06:49,901 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=62/70 Signal level=-48 dBm
+2017-08-04 10:06:54,339 INFO TCP window size: 320 KByte
+2017-08-04 10:06:54,340 INFO local 192.168.1.200 port 44751 connected with 192.168.1.1 port 5001
+2017-08-04 10:06:54,341 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:06:54,342 INFO 0.0- 4.4 sec 50.0 MBytes 95.5 Mbits/sec
+2017-08-04 10:06:54,343 INFO ================== Test 6 Begins ==================
+2017-08-04 10:06:54,344 INFO Frequency:5.18GHz
+2017-08-04 10:06:54,355 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=62/70 Signal level=-48 dBm
+2017-08-04 10:06:58,779 INFO TCP window size: 320 KByte
+2017-08-04 10:06:58,780 INFO local 192.168.1.200 port 44752 connected with 192.168.1.1 port 5001
+2017-08-04 10:06:58,781 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:06:58,782 INFO 0.0- 4.4 sec 50.0 MBytes 95.9 Mbits/sec
+2017-08-04 10:06:58,783 INFO ================== Test 7 Begins ==================
+2017-08-04 10:06:58,784 INFO Frequency:5.18GHz
+2017-08-04 10:06:58,795 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=62/70 Signal level=-48 dBm
+2017-08-04 10:07:03,216 INFO TCP window size: 320 KByte
+2017-08-04 10:07:03,217 INFO local 192.168.1.200 port 44753 connected with 192.168.1.1 port 5001
+2017-08-04 10:07:03,218 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:07:03,219 INFO 0.0- 4.4 sec 50.0 MBytes 95.9 Mbits/sec
+2017-08-04 10:07:03,220 INFO ================== Test 8 Begins ==================
+2017-08-04 10:07:03,220 INFO Frequency:5.18GHz
+2017-08-04 10:07:03,231 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=62/70 Signal level=-48 dBm
+2017-08-04 10:07:07,615 INFO TCP window size: 320 KByte
+2017-08-04 10:07:07,616 INFO local 192.168.1.200 port 44754 connected with 192.168.1.1 port 5001
+2017-08-04 10:07:07,617 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:07:07,618 INFO 0.0- 4.3 sec 50.0 MBytes 96.7 Mbits/sec
+2017-08-04 10:07:07,619 INFO ================== Test 9 Begins ==================
+2017-08-04 10:07:07,620 INFO Frequency:5.18GHz
+2017-08-04 10:07:07,631 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=61/70 Signal level=-49 dBm
+2017-08-04 10:07:12,077 INFO TCP window size: 320 KByte
+2017-08-04 10:07:12,078 INFO local 192.168.1.200 port 44755 connected with 192.168.1.1 port 5001
+2017-08-04 10:07:12,079 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:07:12,080 INFO 0.0- 4.4 sec 50.0 MBytes 95.4 Mbits/sec
+2017-08-04 10:07:12,081 INFO ================== Test 10 Begins ==================
+2017-08-04 10:07:12,082 INFO Frequency:5.18GHz
+2017-08-04 10:07:12,093 INFO Bit Rate=434 Mb/s Tx-Power=12 dBm, Link Quality=60/70 Signal level=-50 dBm
+2017-08-04 10:07:16,588 INFO TCP window size: 320 KByte
+2017-08-04 10:07:16,590 INFO local 192.168.1.200 port 44756 connected with 192.168.1.1 port 5001
+2017-08-04 10:07:16,591 INFO Interval     | Transfer  | Bandwidth
+2017-08-04 10:07:16,591 INFO 0.0- 4.4 sec 50.0 MBytes 94.3 Mbits/sec
+2017-08-04 10:07:16,592 INFO ================== Test Completed ==================

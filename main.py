@@ -5,13 +5,27 @@ __author__ = "Adrian Wong"
 import os, subprocess, argparse, logging
 
 
+def setup_logger(name, log_file, level=logging.INFO):
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    """Function setup as many loggers as you want"""
+
+    handler = logging.FileHandler(log_file, mode='w')
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+
+    return logger
+
+
 class myConfig(object):
     # default values, these values can be overwritten by command line args
     address = '192.168.1.1'
     interface = 'wlan0'
     windowSize = '320K'
     buffer = '50M'
-    cycle = '1'
+    cycle = 1
     linuxPath = os.path.dirname(__file__)
     logPath = '/log/'  # log files storage path
     sysPath = '/system/'  # system required storage path
@@ -31,7 +45,6 @@ def argSetup(config):
                         help='Transfer file size')
     parser.add_argument('-c', action='store', dest='cycle', nargs='?', default=config.cycle, type=int,
                         help='number of cycles')
-
     return parser
 
 
@@ -49,10 +62,11 @@ def reformatMsg(input):
     return result
 
 
-def signalStrength(wifiConfig):
+def signalStrength(wifiConfig, logger):
     sigCmd, err = subprocess.Popen(['iwconfig', wifiConfig.interface], stdout=subprocess.PIPE).communicate()
     test = reformatMsg(sigCmd)
     print test[2], ", ", test[6]
+    logger.info(str(test[2]) + ", " + str(test[6]))
 
 
 def main():
@@ -60,21 +74,37 @@ def main():
     wifiConfig = myConfig()
     parser = argSetup(wifiConfig)
     settings = parser.parse_args()
-    logging.basicConfig(filename=wifiConfig.filename, level=logging.INFO)
+    logger = setup_logger('event_log', wifiConfig.filename)
 
-    signalStrength(wifiConfig)
+    sigCmd, err = subprocess.Popen(['iwconfig', wifiConfig.interface], stdout=subprocess.PIPE).communicate()
+    test = reformatMsg(sigCmd)
+    Freq = test[1].split(' ', 3)
 
-    cmd, err = subprocess.Popen(['iperf', '-c', settings.address, '-w', settings.window, '-n', settings.buffer],
-                                stdout=subprocess.PIPE).communicate()
-    test = reformatMsg(cmd)
+    x = 1
+    while x <= settings.cycle:
+        print "================== Test %r Begins ==================\n" % x
+        logger.info("================== Test %r Begins ==================" % x)
+        print Freq[1], Freq[2]
+        logger.info(str(Freq[1] + Freq[2]))
+        signalStrength(wifiConfig, logger)
 
-    print test[2], ", ", test[4], ", ", test[5]
-    # with cmd.stdout:
-    #     for line in iter(cmd.stdout.readline, b''):
-    #         print line,
-    # cmd.wait()  # wait for the subprocess to exit
+        cmd, err = subprocess.Popen(['iperf', '-c', settings.address, '-w', settings.window, '-n', settings.buffer],
+                                    stdout=subprocess.PIPE).communicate()
+        test = reformatMsg(cmd)
 
-    signalStrength(wifiConfig)
+        print test[2]
+        print test[4].split('] ', 1)[1]
+        print "Interval     | Transfer  | Bandwidth"
+        print test[6].split('] ', 1)[1]
+
+        logger.info(str(test[2]))
+        logger.info(str(test[4].split('] ', 1)[1]))
+        logger.info("Interval     | Transfer  | Bandwidth")
+        logger.info(str(test[6].split('] ', 1)[1]))
+
+        x += 1
+    print "================== Test Completed =================="
+    logger.info("================== Test Completed ==================")
 
 
 if __name__ == "__main__":
