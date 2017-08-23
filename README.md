@@ -1,4 +1,4 @@
-# wifi_test
+# Wifi Test
 wifi test sequence
 
 This module uses iperf package for Linux distributions. The python script establishes a test sequence and logs the results.
