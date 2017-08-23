@@ -3,6 +3,7 @@
 # Description: iperf (client) test sequence for wireless testing
 __author__ = "Adrian Wong"
 import os, subprocess, argparse, logging
+from LCD import display
 
 
 def setup_logger(name, log_file, level=logging.INFO):
@@ -67,11 +68,15 @@ def signalStrength(wifiConfig, logger):
     test = reformatMsg(sigCmd)
     print test[2], ", ", test[6]
     logger.info(str(test[2]) + ", " + str(test[6]))
+    lcd.fb_println(str(test[2]), 0)
+    lcd.fb_println(str(test[6]), 0)
 
 
 def main():
+    global lcd
     # main starts here
     wifiConfig = myConfig()
+    lcd = display()
     parser = argSetup(wifiConfig)
     settings = parser.parse_args()
     logger = setup_logger('event_log', wifiConfig.filename)
@@ -80,12 +85,15 @@ def main():
     test = reformatMsg(sigCmd)
     Freq = test[1].split(' ', 3)
 
+    lcd.fb_clear()
     x = 1
     while x <= settings.cycle:
-        print "================== Test %r Begins ==================\n" % x
-        logger.info("================== Test %r Begins ==================" % x)
-        print Freq[1], Freq[2]
+        print "=============== Test %r Begins ===============\n" % x
+        logger.info("=============== Test %r Begins ===============" % x)
+        lcd.fb_println("=============== Test %r Begins ===============" %x, 1)
+        # print Freq[1], Freq[2]
         logger.info(str(Freq[1] + Freq[2]))
+        lcd.fb_println(Freq[1] + Freq[2], 0)
         signalStrength(wifiConfig, logger)
 
         cmd, err = subprocess.Popen(['iperf', '-c', settings.address, '-w', settings.window, '-n', settings.buffer],
@@ -102,10 +110,19 @@ def main():
         logger.info("Interval     | Transfer  | Bandwidth")
         logger.info(str(test[6].split('] ', 1)[1]))
 
-        x += 1
-    print "================== Test Completed =================="
-    logger.info("================== Test Completed ==================")
+        lcd.fb_println(str(test[2]), 0)
+        #lcd.fb_println(str(test[4].split('] ', 1)[1]), 0)
+        lcd.fb_println("Interval     | Transfer  | Bandwidth", 1)
+        lcd.fb_println(str(test[6].split('] ', 1)[1]), 0)
 
+
+        print "=============== Test %r Completed ===============" %x
+        logger.info("================ Test %r Completed =============="%x)
+        lcd.fb_println("============== Test %r Completed =============="%x, 1)
+        x += 1
+
+    while True:
+        lcd.keepON()
 
 if __name__ == "__main__":
     main()

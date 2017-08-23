@@ -2,6 +2,7 @@
 wifi test sequence
 
 This module uses iperf package for Linux distributions. The python script establishes a test sequence and logs the results.
+edit /etc/udev/rules.d/70-persistent-net.rules for wlan* config
 
 Requirements:
 
