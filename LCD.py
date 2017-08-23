@@ -2,11 +2,12 @@
 #Project: LCD display
 #Description: This module prints line to display screen
 __author__ = "Adrian Wong"
-import os, time
+import os, time, textwrap
 
 class display():
     delay = 1
     FB_Y = 10
+    max_line = 360
     linuxPath = os.path.dirname(__file__)
     logPath = '/log/'  # log files storage path
     sysPath = '/system/'  # system required storage path
@@ -25,8 +26,25 @@ class display():
             os.popen(self.FBUTIL + ' -y ' + str(self.FB_Y) + ' ' + r"""%r""" %msg)
         self.FB_Y = self.FB_Y + 18
 
-        if self.FB_Y >= 468:
-            # max lines = 26 * 18 pixels
+        if self.FB_Y >= self.max_line:
+            # max lines = 26 * 18 pixels = 468
+            time.sleep(self.delay)
+            self.fb_clear()
+
+    def fb_long_print(self, msg, color):
+        list = textwrap.wrap(msg, 46)
+        if color == 1:
+            for element in list:
+                os.popen(self.FBUTIL + ' -y ' + str(self.FB_Y) + ' -r ' + 'red ' + ' ' + r"""%r""" %element)
+                self.FB_Y = self.FB_Y + 18
+
+        else:
+            for element in list:
+                os.popen(self.FBUTIL + ' -y ' + str(self.FB_Y) + ' ' + r"""%r""" %element)
+                self.FB_Y = self.FB_Y + 18
+
+        if self.FB_Y >= self.max_line:
+            # max lines = 26 * 18 pixels = 468
             time.sleep(self.delay)
             self.fb_clear()
 
