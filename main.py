@@ -114,7 +114,12 @@ def main():
                                     stdout=subprocess.PIPE).communicate()
         test = reformatMsg(cmd)
 
-        print test[2]
+        try:
+            print test[2]
+        except IndexError:
+            logger.info("iperf server not found at %r" %wifiConfig.address)
+            lcd.fb_println("iperf server not found at %r" %wifiConfig.address, 1)
+
         print test[4].split('] ', 1)[1]
         print "Interval     | Transfer  | Bandwidth"
         print test[6].split('] ', 1)[1]
