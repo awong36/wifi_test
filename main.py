@@ -22,7 +22,7 @@ def setup_logger(name, log_file, level=logging.INFO):
 
 class myConfig(object):
     # default values, these values can be overwritten by command line args
-    address = '192.168.1.1'
+    address = '192.168.2.1'
     interface = 'wlan0'
     windowSize = '320K'
     buffer = '50M'
@@ -76,13 +76,15 @@ def copyLog(config):
     timestr = time.strftime("%Y%m%d-%H%M%S")
     print "USB path: ", os.path.isdir(config.usbpath)
     if os.path.exists(config.usbpath) == True:
-        os.popen('mv ' + config.filename + ' ' + config.usbpath + timestr + config.log)
-        logger.info("Test logs moved to USB path")
-        lcd.fb_println("Test logs moved to USB path", 0)
+        logger.info("Test logs copy to USB path")
+        os.popen('cp ' + config.filename + ' ' + config.usbpath + timestr + config.log)
+        lcd.fb_println("Test logs copied to USB path", 0)
     else:
         logger.info("USB log path not found")
         lcd.fb_println("USB log path not found", 0)
-    os.popen('mv ' + config.filename + ' ' + config.linuxPath + config.logPath  + timestr + config.log)
+    print config.filename
+    print (config.linuxPath + config.logPath + timestr + config.log)
+    os.popen('mv ' + config.filename + ' ' + config.linuxPath + config.logPath + timestr + config.log)
 
 def main():
     global lcd, logger
