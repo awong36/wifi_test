@@ -22,7 +22,7 @@ def setup_logger(name, log_file, level=logging.INFO):
 
 class myConfig(object):
     # default values, these values can be overwritten by command line args
-    address = '192.168.2.1'
+    address = '192.168.1.1'
     interface = 'wlan0'
     windowSize = '320K'
     buffer = '50M'
